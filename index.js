@@ -1,7 +1,9 @@
+#!/usr/bin/env node
+
 const
     packageJson = require('./package.json'),
-    APP_NAME = packageJson.name,
-    APP_REPO = packageJson.repository.url;
+    APP_NAME = 'groots',
+    APP_REPO = 'https://github.com/achampagnedev/submodules-test.git';
 
 var
     fs = require('fs'),
@@ -9,9 +11,14 @@ var
     cl = require('./modules/cl')(), // formatted command line passed
     clone = require('./modules/clone'); // clone repo;
 
-console.dir(cl);
+if (cl.cmd === '' || cl.cmd === '-v' || cl.cmd === '--version') {
 
-if (cl.cmd === 'install') {
+console.log(`~~~~~~~~~~~~~~~~~~
+Groots ${packageJson.version}
+Brought to you by Globalia Inc.
+~~~~~~~~~~~~~~~~~~`);
+
+} else if (cl.cmd === 'install') {
 
     if (_.contains(cl.flags, '-flag')) {
 
