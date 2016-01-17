@@ -9,7 +9,7 @@ var
     fs = require('fs'),
     _ = require('underscore'),
     cl = require('./modules/cl')(), // formatted command line passed
-    clone = require('./modules/clone'); // clone repo;
+    build = require('./modules/build'); // build commands;
 
 if (cl.cmd === '' || cl.cmd === '-v' || cl.cmd === '--version') {
 
@@ -26,7 +26,7 @@ Brought to you by Globalia Inc.
 
     } else if (_.isEmpty(cl.flags)) {
 
-        clone(APP_REPO, APP_NAME);
+        build.install(APP_REPO, APP_NAME);
 
     }
 
@@ -42,8 +42,12 @@ Brought to you by Globalia Inc.
 
     } else if (_.isEmpty(cl.flags)) {
 
-        console.log('update');
+        build.update(APP_REPO, APP_NAME);
 
     }
+
+} else if (cl.cmd === 'uninstall') {
+
+    build.uninstall(APP_NAME);
 
 }
