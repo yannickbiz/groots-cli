@@ -11,18 +11,24 @@ var
     cl = require(`./modules/cl`)(), // formatted command line passed
     build = require(`./modules/build`); // build commands
 
-console.log(cl);
+if (_.contains(cl.flags, `-v`) || _.contains(cl.flags, `--version`) && cl.cmd === null && cl.subcmd === null) {
 
-if (cl.cmd === `-v` || cl.cmd === `--version` && cl.subcmd === null) {
-
-console.log(`~~~~~~~~~~~~~~~~~~
+console.log(`
+~~~~~~~~~~~~~~~~~~
 ${APP_NAME} ${packageJson.version}
 Brought to you by ${packageJson.author}
-~~~~~~~~~~~~~~~~~~`);
+~~~~~~~~~~~~~~~~~~
+`);
 
-} else if (cl.cmd === `-h` || cl.cmd === `--help` && cl.subcmd === null) {
+} else if (_.contains(cl.flags, `-h`) || _.contains(cl.flags, `--help`) && cl.cmd === null && cl.subcmd === null) {
 
-    console.log(`${APP_NAME}: no such command type -h or --help for a list of commands.`);
+console.log(`
+Here's a list of ${APP_NAME}'s commands you can execute:
+    -v --version    outputs the current ${APP_NAME} version
+    install         installs the current version of ${APP_NAME}
+    update          updates the current version of ${APP_NAME}
+    uninstall       uninstalls ${APP_NAME}
+`);
 
 } else if (cl.cmd === `install`) {
 
@@ -58,10 +64,10 @@ Brought to you by ${packageJson.author}
 
 } else if (typeof cl.cmd === 'undefined') {
 
-    console.log(`${APP_NAME}: no such command type -h or --help for a list of commands.`);
+    console.log(`${APP_NAME}: no such command type '${APP_NAME} -h' or '${APP_NAME} --help' for a list of commands.`);
 
 } else {
 
-    console.log(`${APP_NAME}: no such command type -h or --help for a list of commands.`);
+    console.log(`${APP_NAME}: no such command type '${APP_NAME} -h' or '${APP_NAME} --help' for a list of commands.`);
 
 }

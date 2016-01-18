@@ -16,7 +16,7 @@
     "groots": "index.js"
   },
   "devDependencies": {
-    "nodegit": "^0.7.0",
+    "simple-git": "^1.21.0",
     "underscore": "^1.8.3",
     "yesno": "0.0.1"
   }

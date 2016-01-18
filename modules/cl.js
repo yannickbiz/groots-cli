@@ -21,11 +21,11 @@ module.exports = () => {
 
             cmds.executable = item;
 
-        } else if (index === 2 || item.indexOf('-') === 0) {
+        } else if (index === 2 && item.indexOf('-') !== 0) {
 
             cmds.cmd = item;
 
-        } else if (item.indexOf('-') === 0 && index >= 3) {
+        } else if (item.indexOf('-') === 0 && index >= 2) {
 
             cmds.flags.push(item);
 
