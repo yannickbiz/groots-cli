@@ -35,7 +35,7 @@ module.exports = {
 
         hlp.fileExists(dirName, () => {
 
-            yesno.ask(`Proceed with update ? (Y/n)`, true, (ok) => {
+            yesno.ask(`Proceed with update (WARNING: This will overwrite all core files)? (Y/n)`, true, (ok) => {
 
                 if (ok) {
 

@@ -3,7 +3,7 @@
 const
     packageJson = require(`./package.json`),
     APP_NAME = `groots`,
-    APP_REPO = `https://github.com/achampagnedev/submodules-test.git`;
+    APP_REPO = `http://git.globaliadev.com/globalia/frontend-app.git`;
 
 var
     fs = require(`fs`),
